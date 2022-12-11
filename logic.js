@@ -74,7 +74,7 @@ function switchTable(selectElement) {
 function switchTimeTableTime() {
 	const timeElements = document.querySelectorAll('td[data-time]');7
 
-	const timeZoneName = new Date().toLocaleString([], {timeZoneName: 'short'}).split(' ').slice(-1);
+	const timeZoneName = new Date().toLocaleString([], {timeZoneName: 'short'}).split(' ').pop();
 	for (const element of timeElements) {
 		const time = element.dataset.time;
 		if (timeState == 'GMT') {
