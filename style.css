@@ -1,0 +1,46 @@
+@import "https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css";
+
+html,
+body {
+	font-family: sans-serif;
+}
+
+.title,
+.subtitle,
+.content {
+	text-align: center;
+}
+
+img {
+	display: block;
+	margin: 0 auto;
+}
+
+#times .dateTable {
+	display: grid;
+	grid-template-columns: 50px auto;
+	margin-left: 2rem;
+}
+
+#times .timezone {
+	margin-top: .5rem;
+	font-weight: bolder;
+}
+
+#times .timeSlot {
+	font-weight: bold;
+}
+
+#times button {
+	margin-top: 1rem;
+}
+
+#times .timezoneNote {
+	font-size: small;
+	margin-top: 3px;
+}
+
+#timetable table.table {
+	margin-bottom: 1.5rem;
+	margin-top: .5rem;
+}
