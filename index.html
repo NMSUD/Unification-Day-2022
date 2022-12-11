@@ -18,142 +18,139 @@
 </head>
 
 <body>
-	<div class="container">
-		<nav class="nav"></nav>
-		<main class="section">
-			<h1 class="title">
-				Unification Day 2022
-			</h1>
-			<section class="section" id="times">
-				<h2 class="title is-5">Times</h2>
-				<p>Unification Day is split into two events, targeting different timezones:</p>
-				<div class="timezone">Europe/Asia:</div>
-				<div class="dateTable">
-					<div class="timeSlot">Start:</div><output id="timeStartEU"></output>
-					<div class="timeSlot">End:</div><output id="timeEndEU"></output>
-				</div>
-				<div class="timezone">Australia/America:</div>
-				<div class="dateTable">
-					<div class="timeSlot">Start:</div><output id="timeStartNA"></output>
-					<div class="timeSlot">End:</div><output id="timeEndNA"></output>
-				</div>
-				<button id="switchButton" class="button" onclick="switchTime(this)">Switch timezone</button>
-				<div class="timezoneNote">Currently displaying: <output id="timezoneMode"></output></div>
-			</section>
-			<section class="section" id="timetable">
-				<h2 class="title is-5">Schedule</h2>
-				<p>Select the timezone in which you want to attend the event:</p>
-				<select name="Timezone" id="timezoneSelect" onchange="switchTable(this)">
-					<option value="EU">Europe/Asia</option>
-					<option value="NA">Australia/America</option>
-				</select>
-				<table class="table is-striped is-fullwidth" id="EU">
-					<tr>
-						<th>Time</th>
-						<th>Event</th>
-					</tr>
-					<tr>
-						<td data-time="11:00 GMT">11:00 GMT</td>
-						<td>Opening Ceremony</td>
-					</tr>
-					<tr>
-						<td data-time="11:20 GMT">11:20 GMT</td>
-						<td>Social Gatherings</td>
-					</tr>
-					<tr>
-						<td data-time="12:00 GMT">12:00 GMT</td>
-						<td>Multi-Tool PvP</td>
-					</tr>
-					<tr>
-						<td data-time="12:45 GMT">12:45 GMT</td>
-						<td>Base Tours</td>
-					</tr>
-					<tr>
-						<td data-time="13:15 GMT">13:15 GMT</td>
-						<td>Base Tours</td>
-					</tr>
-					<tr>
-						<td data-time="13:45 GMT">13:45 GMT</td>
-						<td>Blasterball</td>
-					</tr>
-					<tr>
-						<td data-time="14:30 GMT">14:30 GMT</td>
-						<td>Base Tours</td>
-					</tr>
-					<tr>
-						<td data-time="15:20 GMT">15:20 GMT</td>
-						<td>Exocraft Racing</td>
-					</tr>
-					<tr>
-						<td data-time="15:50 GMT">15:50 GMT</td>
-						<td>Starship PvP</td>
-					</tr>
-					<tr>
-						<td data-time="16:20 GMT">16:20 GMT</td>
-						<td>Companion Egg exchange, Pet show</td>
-					</tr>
-					<tr>
-						<td data-time="16:40 GMT">16:40 GMT</td>
-						<td>Closing Cermony</td>
-					</tr>
-				</table>
-				<table class="table is-striped is-fullwidth" id="NA">
-					<tr>
-						<th>Time</th>
-						<th>Event</th>
-					</tr>
-					<tr>
-						<td data-time="23:00 GMT">23:00 GMT</td>
-						<td>Opening Ceremony</td>
-					</tr>
-					<tr>
-						<td data-time="23:20 GMT">23:20 GMT</td>
-						<td>Companion Egg exchange, Pet show</td>
-					</tr>
-					<tr>
-						<td data-time="23:40 GMT">23:40 GMT</td>
-						<td>Social Gatherings</td>
-					</tr>
-					<tr>
-						<td data-time="00:20 GMT">00:20 GMT</td>
-						<td>Multi-Tool PvP</td>
-					</tr>
-					<tr>
-						<td data-time="01:00 GMT">01:00 GMT</td>
-						<td>Base Tours</td>
-					</tr>
-					<tr>
-						<td data-time="01:30 GMT">01:30 GMT</td>
-						<td>Base Tours</td>
-					</tr>
-					<tr>
-						<td data-time="02:00 GMT">02:00 GMT</td>
-						<td>Blasterball</td>
-					</tr>
-					<tr>
-						<td data-time="02:45 GMT">02:45 GMT</td>
-						<td>Base Tours</td>
-					</tr>
-					<tr>
-						<td data-time="03:40 GMT">03:40 GMT</td>
-						<td>Exocraft Racing</td>
-					</tr>
-					<tr>
-						<td data-time="04:10 GMT">04:10 GMT</td>
-						<td>Starship PvP</td>
-					</tr>
-					<tr>
-						<td data-time="04:40 GMT">04:40 GMT</td>
-						<td>Closing Cermony</td>
-					</tr>
-				</table>
-			</section>
-		</main>
-		<footer class="footer">
-			<img src="https://cdn.discordapp.com/icons/912548805763801159/4c19b2f1d68e8da490b9273b1d4047bc.webp?size=128"
-				alt="Unification Day 2022 Logo">
-		</footer>
-	</div>
+	<main class="container">
+		<h1 class="title">
+			Unification Day 2022
+		</h1>
+		<section class="section" id="times">
+			<h2 class="title is-5">Times</h2>
+			<p>Unification Day is split into two events, targeting different timezones:</p>
+			<div class="timezone">Europe/Asia:</div>
+			<div class="dateTable">
+				<div class="timeSlot">Start:</div><output id="timeStartEU"></output>
+				<div class="timeSlot">End:</div><output id="timeEndEU"></output>
+			</div>
+			<div class="timezone">Australia/America:</div>
+			<div class="dateTable">
+				<div class="timeSlot">Start:</div><output id="timeStartNA"></output>
+				<div class="timeSlot">End:</div><output id="timeEndNA"></output>
+			</div>
+			<button id="switchButton" class="button" onclick="switchTime(this)">Switch timezone</button>
+			<div class="timezoneNote">Currently displaying: <output id="timezoneMode"></output></div>
+		</section>
+		<section class="section" id="timetable">
+			<h2 class="title is-5">Schedule</h2>
+			<p>Select the timezone in which you want to attend the event:</p>
+			<select name="Timezone" id="timezoneSelect" onchange="switchTable(this)">
+				<option value="EU">Europe/Asia</option>
+				<option value="NA">Australia/America</option>
+			</select>
+			<table class="table is-striped is-fullwidth" id="EU">
+				<tr>
+					<th>Time</th>
+					<th>Event</th>
+				</tr>
+				<tr>
+					<td data-time="11:00 GMT">11:00 GMT</td>
+					<td>Opening Ceremony</td>
+				</tr>
+				<tr>
+					<td data-time="11:20 GMT">11:20 GMT</td>
+					<td>Social Gatherings</td>
+				</tr>
+				<tr>
+					<td data-time="12:00 GMT">12:00 GMT</td>
+					<td>Multi-Tool PvP</td>
+				</tr>
+				<tr>
+					<td data-time="12:45 GMT">12:45 GMT</td>
+					<td>Base Tours</td>
+				</tr>
+				<tr>
+					<td data-time="13:15 GMT">13:15 GMT</td>
+					<td>Base Tours</td>
+				</tr>
+				<tr>
+					<td data-time="13:45 GMT">13:45 GMT</td>
+					<td>Blasterball</td>
+				</tr>
+				<tr>
+					<td data-time="14:30 GMT">14:30 GMT</td>
+					<td>Base Tours</td>
+				</tr>
+				<tr>
+					<td data-time="15:20 GMT">15:20 GMT</td>
+					<td>Exocraft Racing</td>
+				</tr>
+				<tr>
+					<td data-time="15:50 GMT">15:50 GMT</td>
+					<td>Starship PvP</td>
+				</tr>
+				<tr>
+					<td data-time="16:20 GMT">16:20 GMT</td>
+					<td>Companion Egg exchange, Pet show</td>
+				</tr>
+				<tr>
+					<td data-time="16:40 GMT">16:40 GMT</td>
+					<td>Closing Cermony</td>
+				</tr>
+			</table>
+			<table class="table is-striped is-fullwidth" id="NA">
+				<tr>
+					<th>Time</th>
+					<th>Event</th>
+				</tr>
+				<tr>
+					<td data-time="23:00 GMT">23:00 GMT</td>
+					<td>Opening Ceremony</td>
+				</tr>
+				<tr>
+					<td data-time="23:20 GMT">23:20 GMT</td>
+					<td>Companion Egg exchange, Pet show</td>
+				</tr>
+				<tr>
+					<td data-time="23:40 GMT">23:40 GMT</td>
+					<td>Social Gatherings</td>
+				</tr>
+				<tr>
+					<td data-time="00:20 GMT">00:20 GMT</td>
+					<td>Multi-Tool PvP</td>
+				</tr>
+				<tr>
+					<td data-time="01:00 GMT">01:00 GMT</td>
+					<td>Base Tours</td>
+				</tr>
+				<tr>
+					<td data-time="01:30 GMT">01:30 GMT</td>
+					<td>Base Tours</td>
+				</tr>
+				<tr>
+					<td data-time="02:00 GMT">02:00 GMT</td>
+					<td>Blasterball</td>
+				</tr>
+				<tr>
+					<td data-time="02:45 GMT">02:45 GMT</td>
+					<td>Base Tours</td>
+				</tr>
+				<tr>
+					<td data-time="03:40 GMT">03:40 GMT</td>
+					<td>Exocraft Racing</td>
+				</tr>
+				<tr>
+					<td data-time="04:10 GMT">04:10 GMT</td>
+					<td>Starship PvP</td>
+				</tr>
+				<tr>
+					<td data-time="04:40 GMT">04:40 GMT</td>
+					<td>Closing Cermony</td>
+				</tr>
+			</table>
+		</section>
+	</main>
+	<footer class="footer">
+		<img src="https://cdn.discordapp.com/icons/912548805763801159/4c19b2f1d68e8da490b9273b1d4047bc.webp?size=128"
+			alt="Unification Day 2022 Logo">
+	</footer>
 </body>
 
 </html>

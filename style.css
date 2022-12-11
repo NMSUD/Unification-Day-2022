@@ -5,6 +5,10 @@ body {
 	font-family: sans-serif;
 }
 
+.container {
+	margin-top: 2rem;
+}
+
 .title,
 .subtitle,
 .content {
