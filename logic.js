@@ -11,7 +11,8 @@ function convertTime(timestamp) {
 		if (timeState == 'GMT') {
 			return formattedDate + ' GMT';
 		} else {
-			return formattedDate;
+			const timeZoneName = new Date().toLocaleString([], {timeZoneName: 'short'}).split(' ').slice(-1);
+			return formattedDate + ' ' + timeZoneName;
 		}
 	})();
 	return formattedDateString;
@@ -37,17 +38,20 @@ function switchTime() {
 	const NAStartOutput = document.getElementById('timeStartNA');
 	const NAEndOutput = document.getElementById('timeEndNA');
 	const timezoneModeOut = document.getElementById('timezoneMode');
-
+	
 	const EUStartTime = calcTime('EU', 'start');
 	const EUEndTime = calcTime('EU', 'end');
 	const NAStartTime = calcTime('NA', 'start');
 	const NAEndTime = calcTime('NA', 'end');
+	
+	const timeZoneName = EUStartTime.split(' ').slice(-1);
 
 	EUStartOutput.innerText = EUStartTime;
 	EUEndOutput.innerText = EUEndTime;
 	NAStartOutput.innerText = NAStartTime;
 	NAEndOutput.innerText = NAEndTime;
-	timezoneModeOut.innerText = (timeState == 'GMT') ? 'GMT' : 'Your local timezone';
+	timezoneModeOut.innerText = (timeState == 'GMT') ? 'GMT' : `Your local timezone (${timeZoneName})`;
+	switchTimeTableTime();
 	timeState = (timeState == 'GMT') ? 'local' : 'GMT';
 }
 
@@ -64,5 +68,21 @@ function switchTable(selectElement) {
 		} else {
 			tables[table].style.display = 'none';
 		}
+	}
+}
+
+function switchTimeTableTime() {
+	const timeElements = document.querySelectorAll('td[data-time]');7
+
+	const timeZoneName = new Date().toLocaleString([], {timeZoneName: 'short'}).split(' ').slice(-1);
+	for (const element of timeElements) {
+		const time = element.dataset.time;
+		if (timeState == 'GMT') {
+			element.innerText = time;
+			continue;
+		}
+		const timeStamp = '12 17, 2022 ' + time;
+		const date = new Date(timeStamp).toLocaleTimeString([], { timeStyle: 'short'});
+		element.innerText = `${date} ${timeZoneName}`;
 	}
 }
