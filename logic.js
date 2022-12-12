@@ -1,5 +1,7 @@
-const timeZoneName = new Date().toLocaleString([], { timeZoneName: 'short' }).split(' ').pop();
+const currentTime = new Date();
+const timeZoneName = currentTime.toLocaleString([], { timeZoneName: 'short' }).split(' ').pop();
 let timeState = 'local';
+
 function convertTime(timestamp) {
 	const date = new Date(timestamp * 1000);
 	const options = {
@@ -82,12 +84,11 @@ function switchTimeTableTime() {
 		const timeOnly = time.split(' ');
 		const hoursMinutes = timeOnly[0].split(':');
 
-		const timeStamp = new Date();
-		timeStamp.setUTCHours(hoursMinutes[0]);
-		timeStamp.setUTCMinutes(hoursMinutes[1]);
-		timeStamp.setUTCSeconds(0);
+		currentTime.setUTCHours(hoursMinutes[0]);
+		currentTime.setUTCMinutes(hoursMinutes[1]);
+		currentTime.setUTCSeconds(0);
 
-		const date = timeStamp.toLocaleTimeString([], { timeStyle: 'short' });
+		const date = currentTime.toLocaleTimeString([], { timeStyle: 'short' });
 		element.innerText = `${date} ${timeZoneName}`;
 	}
 }
