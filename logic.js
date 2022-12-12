@@ -11,7 +11,7 @@ function convertTime(timestamp) {
 		if (timeState == 'GMT') {
 			return formattedDate + ' GMT';
 		} else {
-			const timeZoneName = new Date().toLocaleString([], {timeZoneName: 'short'}).split(' ').slice(-1);
+			const timeZoneName = new Date().toLocaleString([], {timeZoneName: 'short'}).split(' ').pop();
 			return formattedDate + ' ' + timeZoneName;
 		}
 	})();
@@ -81,7 +81,15 @@ function switchTimeTableTime() {
 			element.innerText = time;
 			continue;
 		}
-		const timeStamp = '12 17, 2022 ' + time;
+
+		const timeOnly = time.split(' ');
+		const hoursMinutes = timeOnly[0].split(':');
+		
+		const timeStamp = new Date();
+		timeStamp.setUTCHours(hoursMinutes[0]);
+		timeStamp.setUTCMinutes(hoursMinutes[1]);
+		timeStamp.setUTCSeconds(0);
+		
 		const date = new Date(timeStamp).toLocaleTimeString([], { timeStyle: 'short'});
 		element.innerText = `${date} ${timeZoneName}`;
 	}
