@@ -1,3 +1,4 @@
+const timeZoneName = new Date().toLocaleString([], { timeZoneName: 'short' }).split(' ').pop();
 let timeState = 'local';
 function convertTime(timestamp) {
 	const date = new Date(timestamp * 1000);
@@ -11,7 +12,6 @@ function convertTime(timestamp) {
 		if (timeState == 'GMT') {
 			return formattedDate + ' GMT';
 		} else {
-			const timeZoneName = new Date().toLocaleString([], {timeZoneName: 'short'}).split(' ').pop();
 			return formattedDate + ' ' + timeZoneName;
 		}
 	})();
@@ -38,13 +38,11 @@ function switchTime() {
 	const NAStartOutput = document.getElementById('timeStartNA');
 	const NAEndOutput = document.getElementById('timeEndNA');
 	const timezoneModeOut = document.getElementById('timezoneMode');
-	
+
 	const EUStartTime = calcTime('EU', 'start');
 	const EUEndTime = calcTime('EU', 'end');
 	const NAStartTime = calcTime('NA', 'start');
 	const NAEndTime = calcTime('NA', 'end');
-	
-	const timeZoneName = EUStartTime.split(' ').pop();
 
 	EUStartOutput.innerText = EUStartTime;
 	EUEndOutput.innerText = EUEndTime;
@@ -74,7 +72,6 @@ function switchTable(selectElement) {
 function switchTimeTableTime() {
 	const timeElements = document.querySelectorAll('td[data-time]');
 
-	const timeZoneName = new Date().toLocaleString([], {timeZoneName: 'short'}).split(' ').pop();
 	for (const element of timeElements) {
 		const time = element.dataset.time;
 		if (timeState == 'GMT') {
@@ -84,13 +81,13 @@ function switchTimeTableTime() {
 
 		const timeOnly = time.split(' ');
 		const hoursMinutes = timeOnly[0].split(':');
-		
+
 		const timeStamp = new Date();
 		timeStamp.setUTCHours(hoursMinutes[0]);
 		timeStamp.setUTCMinutes(hoursMinutes[1]);
 		timeStamp.setUTCSeconds(0);
-		
-		const date = new Date(timeStamp).toLocaleTimeString([], { timeStyle: 'short'});
+
+		const date = timeStamp.toLocaleTimeString([], { timeStyle: 'short' });
 		element.innerText = `${date} ${timeZoneName}`;
 	}
 }
