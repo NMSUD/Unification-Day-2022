@@ -44,7 +44,7 @@ function switchTime() {
 	const NAStartTime = calcTime('NA', 'start');
 	const NAEndTime = calcTime('NA', 'end');
 	
-	const timeZoneName = EUStartTime.split(' ').slice(-1);
+	const timeZoneName = EUStartTime.split(' ').pop();
 
 	EUStartOutput.innerText = EUStartTime;
 	EUEndOutput.innerText = EUEndTime;
@@ -72,7 +72,7 @@ function switchTable(selectElement) {
 }
 
 function switchTimeTableTime() {
-	const timeElements = document.querySelectorAll('td[data-time]');7
+	const timeElements = document.querySelectorAll('td[data-time]');
 
 	const timeZoneName = new Date().toLocaleString([], {timeZoneName: 'short'}).split(' ').pop();
 	for (const element of timeElements) {
