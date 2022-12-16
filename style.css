@@ -33,31 +33,31 @@ main img {
 	padding: 0 1rem;
 }
 
-#times .dateTable {
+#Time .dateTable {
 	display: grid;
 	grid-template-columns: 50px auto;
 	margin-left: 2rem;
 }
 
-#times .timezone {
+#Time .timezone {
 	margin-top: .5rem;
 	font-weight: bolder;
 }
 
-#times .timeSlot {
+#Time .timeSlot {
 	font-weight: bold;
 }
 
-#times button {
+#Time button {
 	margin-top: 1rem;
 }
 
-#times .timezoneNote {
+#Time .timezoneNote {
 	font-size: small;
 	margin-top: 3px;
 }
 
-#timetable table.table {
+#Schedule table.table {
 	margin-bottom: 1.5rem;
 	margin-top: .5rem;
 	border: 1px solid lightgrey;
@@ -87,4 +87,29 @@ iframe {
 	border: 1px solid lightgray;
 	border-radius: 7px;
 	margin-bottom: .5rem;
+}
+
+.streamList {
+	display: flex;
+	justify-content: space-around;
+	flex-wrap: wrap;
+	margin: 0 15vw;
+}
+
+.streamList>* {
+	margin: .5rem;
+}
+
+table.table td {
+	vertical-align: middle;
+}
+
+table.table td br {
+	margin-bottom: .75rem;
+}
+
+.streamRegion>* {
+	display: block;
+	margin: 1rem;
+	text-align: left;
 }
