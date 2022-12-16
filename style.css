@@ -57,12 +57,20 @@ main img {
 	margin-top: 3px;
 }
 
-#Schedule table.table {
+table.table {
 	margin-bottom: 1.5rem;
 	margin-top: .5rem;
 	border: 1px solid lightgrey;
 	border-radius: 5px;
 	border-collapse: unset;
+}
+
+table.table td {
+	vertical-align: middle;
+}
+
+table.table td br {
+	margin-bottom: .75rem;
 }
 
 footer {
@@ -98,14 +106,6 @@ iframe {
 
 .streamList>* {
 	margin: .5rem;
-}
-
-table.table td {
-	vertical-align: middle;
-}
-
-table.table td br {
-	margin-bottom: .75rem;
 }
 
 .streamRegion>* {
