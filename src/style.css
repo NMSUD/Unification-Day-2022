@@ -113,3 +113,16 @@ iframe {
 	margin: 1rem;
 	justify-content: left;
 }
+
+footer.footer nav#UDList {
+	margin: 1rem;
+	font-size: larger;
+}
+
+nav.UD-List {
+	margin-left: 25vw;
+}
+
+nav.UD-List>div {
+	margin: 3px;
+}

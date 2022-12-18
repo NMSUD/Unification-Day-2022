@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Unification Day 2022</title>
+	<link rel="stylesheet" href="/src/style.css">
+	<link rel="shortcut icon" href="./favicon.ico">
+	<script src="/src/logic.js"></script>
+	<script>
+		window.onload = () => {
+			switchTime();
+			switchTable(document.getElementById('timezoneSelect'));
+		}
+	</script>
+</head>
+
+<body>
+	<main class="container">
+		<h1 class="title">Unification Day 2022</h1>
+		<section class="section" id="Info">
+			<h2 class="title is-5">Important Info</h2>
+			<iframe src="https://discord.com/widget?id=912548805763801159&theme=light" width="400" height="500"
+				sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"></iframe>
+			<!--<a href="https://discord.gg/NHFsUJzA" rel="noopener noreferrer" target="_blank" style="display: block;"
+				class="is-size-3 has-text-centered">Click here to join the UD22 Discord Server!</a>-->
+			<p class="content"><span class="has-text-weight-bold is-size-4">Glyphs: </span><span
+					class="glyphs has-text-weight-normal">504D32D459A5</span><br><span class="is-size-5">(Eissentam
+					Galaxy)</span></p>
+		</section>
+		<section class="section" id="Time">
+			<h2 class="title is-5">Times</h2>
+			<p>Unification Day is split into two events, targeting different regions:</p>
+			<div class="timezone">Europe/Asia:</div>
+			<div class="dateTable">
+				<div class="timeSlot">Start:</div><output id="timeStartEU"></output>
+				<div class="timeSlot">End:</div><output id="timeEndEU"></output>
+			</div>
+			<div class="timezone">Australia/America:</div>
+			<div class="dateTable">
+				<div class="timeSlot">Start:</div><output id="timeStartNA"></output>
+				<div class="timeSlot">End:</div><output id="timeEndNA"></output>
+			</div>
+			<button id="switchButton" class="button" onclick="switchTime(this)">Switch timezone</button>
+			<div class="timezoneNote">Currently displaying: <output id="timezoneMode"></output></div>
+		</section>
+		<section class="section" id="Schedule">
+			<h2 class="title is-5">Schedule</h2>
+			<p>Select the region in which you want to attend the event:</p>
+			<select name="Timezone" id="timezoneSelect" onchange="switchTable(this)">
+				<option value="EU">Europe/Asia</option>
+				<option value="NA">Australia/America</option>
+			</select>
+			<table class="table is-striped is-fullwidth" id="EU">
+				<tr>
+					<th>Time</th>
+					<th>Event</th>
+					<th>Base Name</th>
+					<th>Planet</th>
+					<th>Coordinates</th>
+				</tr>
+				<tr>
+					<td data-time="11:00 GMT"></td>
+					<td>Opening Ceremony</td>
+					<td>UDXXII - Opening Ceremony Portal</td>
+					<td>UD XXII</td>
+					<td>-69.28, +167.39</td>
+				</tr>
+				<tr>
+					<td data-time="11:25 GMT"></td>
+					<td>Social Gatherings</td>
+					<td>North Pole Cafe<br>Qitanian UDXXII Dance Lounge</td>
+					<td>UD XXII</td>
+					<td>+42.10, -84.20<br>+46.88, +29.50</td>
+				</tr>
+				<tr>
+					<td data-time="11:45 GMT"></td>
+					<td>Exocraft Racing</td>
+					<td>New Ebisu Circuit</td>
+					<td>UD22-Delta</td>
+					<td>+56.75, -126.84</td>
+				</tr>
+				<tr>
+					<td data-time="12:05 GMT"></td>
+					<td>Base Tours</td>
+					<td>Qitanian Monument UDXXII<br>Karibu Valley Overlook</td>
+					<td>UD22-Delta</td>
+					<td>13.14, -129.90<br>+0.26, -55.56</td>
+				</tr>
+				<tr>
+					<td data-time="12:25 GMT"></td>
+					<td>Blasterball</td>
+					<td>UD22 GHSL Blasterball</td>
+					<td>UD22-Delta</td>
+					<td>-25.42, -99.57</td>
+				</tr>
+				<tr>
+					<td data-time="13:10 GMT"></td>
+					<td>Base Tours</td>
+					<td>Cafe42- "We brought pizza!"<br>Triquetra Temple</td>
+					<td>UD XXII</td>
+					<td>-18.83, -44.98<br>+49.43, -122.97</td>
+				</tr>
+				<tr>
+					<td data-time="13:30 GMT"></td>
+					<td>Pet Show</td>
+					<td>Unification Day Peace Garden</td>
+					<td>UD XXII</td>
+					<td>-51.14, +58.21</td>
+				</tr>
+				<tr>
+					<td data-time="13:50 GMT"></td>
+					<td>Base Tours</td>
+					<td>Grafitti Bong [NMH]<br>Oxalis 22 Hotel</td>
+					<td>UD XXII</td>
+					<td>+67.95, -146.67<br>-19.61, -40.08</td>
+				</tr>
+				<tr>
+					<td data-time="14:10 GMT"></td>
+					<td>Multi-Tool PvP</td>
+					<td>Unity Stadium</td>
+					<td>UD XXII</td>
+					<td>-57.08 -177.46</td>
+				</tr>
+				<tr>
+					<td data-time="14:55 GMT"></td>
+					<td>Base Tours</td>
+					<td>Double trouble<br>Floating Café & Garden</td>
+					<td>UD22-Charlie</td>
+					<td>+11.11, +45.37<br>+37.91, -140.66</td>
+				</tr>
+				<tr>
+					<td data-time="15:15 GMT"></td>
+					<td>Exocraft Racing</td>
+					<td>Waterflame Dash (Nomad Track)</td>
+					<td>UD22-Charlie</td>
+					<td>+6.24, +66.23</td>
+				</tr>
+				<tr>
+					<td data-time="15:35 GMT"></td>
+					<td>Base Tours</td>
+					<td>Evil's Hangout<br>Nipnip lounge and look out Unification'22</td>
+					<td>UD22-Charlie</td>
+					<td>-9.72, +83.20<br>+11.37, +80.12</td>
+				</tr>
+				<tr>
+					<td data-time="15:55 GMT"></td>
+					<td>Starship PvP</td>
+					<td>GHub Indium Dome</td>
+					<td>UD XXII</td>
+					<td>-69.00, +170.00</td>
+				</tr>
+				<tr>
+					<td data-time="16:35 GMT"></td>
+					<td>Closing Ceremony</td>
+					<td>UDXXII Closing Ceremony</td>
+					<td>UD XXII</td>
+					<td>-7.93, -6.91</td>
+				</tr>
+			</table>
+			<table class="table is-striped is-fullwidth" id="NA">
+				<tr>
+					<th>Time</th>
+					<th>Event</th>
+					<th>Base Name</th>
+					<th>Planet</th>
+					<th>Coordinates</th>
+				</tr>
+				<tr>
+					<td data-time="23:00 GMT"></td>
+					<td>Opening Ceremony</td>
+					<td>UDXXII - Opening Ceremony Portal</td>
+					<td>UD XXII</td>
+					<td>-69.28, +167.39</td>
+				</tr>
+				<tr>
+					<td data-time="23:25 GMT"></td>
+					<td>Social Gatherings</td>
+					<td>North Pole Cafe<br>Qitanian UDXXII Dance Lounge</td>
+					<td>UD XXII</td>
+					<td>+42.10, -84.20<br>+46.88, +29.50</td>
+				</tr>
+				<tr>
+					<td data-time="23:45 GMT"></td>
+					<td>Exocraft Racing</td>
+					<td>New Ebisu Circuit</td>
+					<td>UD22-Delta</td>
+					<td>+56.75, -126.84</td>
+				</tr>
+				<tr>
+					<td data-time="00:05 GMT"></td>
+					<td>Base Tours</td>
+					<td>Qitanian Monument UDXXII<br>Karibu Valley Overlook</td>
+					<td>UD22-Delta</td>
+					<td>13.14, -129.90<br>+0.26, -55.56</td>
+				</tr>
+				<tr>
+					<td data-time="00:25 GMT"></td>
+					<td>Blasterball</td>
+					<td>UD22 GHSL Blasterball</td>
+					<td>UD22-Delta</td>
+					<td>-25.42, -99.57</td>
+				</tr>
+				<tr>
+					<td data-time="01:10 GMT"></td>
+					<td>Base Tours</td>
+					<td>Cafe42- "We brought pizza!"<br>Triquetra Temple</td>
+					<td>UD XXII</td>
+					<td>-18.83, -44.98<br>+49.43, -122.97</td>
+				</tr>
+				<tr>
+					<td data-time="01:30 GMT"></td>
+					<td>Pet Show</td>
+					<td>Unification Day Peace Garden</td>
+					<td>UD XXII</td>
+					<td>-51.14, +58.21</td>
+				</tr>
+				<tr>
+					<td data-time="01:50 GMT"></td>
+					<td>Base Tours</td>
+					<td>Grafitti Bong [NMH]<br>Oxalis 22 Hotel</td>
+					<td>UD XXII</td>
+					<td>+67.95, -146.67<br>-19.61, -40.08</td>
+				</tr>
+				<tr>
+					<td data-time="02:10 GMT"></td>
+					<td>Multi-Tool PvP</td>
+					<td>Unity Stadium</td>
+					<td>UD XXII</td>
+					<td>-57.08 -177.46</td>
+				</tr>
+				<tr>
+					<td data-time="02:55 GMT"></td>
+					<td>Base Tours</td>
+					<td>Double trouble<br>Floating Café & Garden</td>
+					<td>UD22-Charlie</td>
+					<td>+11.11, +45.37<br>+37.91, -140.66</td>
+				</tr>
+				<tr>
+					<td data-time="03:15 GMT"></td>
+					<td>Exocraft Racing</td>
+					<td>Waterflame Dash (Nomad Track)</td>
+					<td>UD22-Charlie</td>
+					<td>+6.24, +66.23</td>
+				</tr>
+				<tr>
+					<td data-time="03:35 GMT"></td>
+					<td>Base Tours</td>
+					<td>Evil's Hangout<br>Nipnip lounge and look out Unification'22</td>
+					<td>UD22-Charlie</td>
+					<td>-9.72, +83.20<br>+11.37, +80.12</td>
+				</tr>
+				<tr>
+					<td data-time="03:55 GMT"></td>
+					<td>Starship PvP</td>
+					<td>GHub Indium Dome</td>
+					<td>UD XXII</td>
+					<td>-69.00, +170.00</td>
+				</tr>
+				<tr>
+					<td data-time="04:35 GMT"></td>
+					<td>Closing Ceremony</td>
+					<td>UDXXII Closing Ceremony</td>
+					<td>UD XXII</td>
+					<td>-7.93, -6.91</td>
+				</tr>
+			</table>
+		</section>
+		<section class="section" id="Stream">
+			<h2 class="title is-5">Streams</h2>
+			<div class="streamList">
+				<div class="streamRegion">
+					<h3 class="title is-6">Europe/Asia</h3>
+					<a class="button is-link is-outlined" href="https://twitch.tv/Lianerras" target="_blank"
+						rel="noopener noreferrer"><svg width="25" height="20">
+							<path fill-rule="evenodd"
+								d="M16.75 10.83L4.55 19A1 1 0 0 1 3 18.13V1.87A1 1 0 0 1 4.55 1l12.2 8.13a1 1 0 0 1 0 1.7z" />
+						</svg>Lianeras</a>
+					<a class="button is-link is-outlined" href="https://www.youtube.com/@Enrasilver" target="_blank"
+						rel="noopener noreferrer"><svg width="25" height="20">
+							<path fill-rule="evenodd"
+								d="M16.75 10.83L4.55 19A1 1 0 0 1 3 18.13V1.87A1 1 0 0 1 4.55 1l12.2 8.13a1 1 0 0 1 0 1.7z" />
+						</svg>Enrasilver</a>
+				</div>
+				<div class="streamRegion">
+					<h3 class="title is-6">Australia/America</h3>
+					<a class="button is-link is-outlined" href="https://twitch.tv/evans_sky" target="_blank"
+						rel="noopener noreferrer"><svg width="25" height="20">
+							<path fill-rule="evenodd"
+								d="M16.75 10.83L4.55 19A1 1 0 0 1 3 18.13V1.87A1 1 0 0 1 4.55 1l12.2 8.13a1 1 0 0 1 0 1.7z" />
+						</svg>Evans_sky</a>
+					<a class="button is-link is-outlined" href="https://www.youtube.com/@KailLabs" target="_blank"
+						rel="noopener noreferrer"><svg width="25" height="20">
+							<path fill-rule="evenodd"
+								d="M16.75 10.83L4.55 19A1 1 0 0 1 3 18.13V1.87A1 1 0 0 1 4.55 1l12.2 8.13a1 1 0 0 1 0 1.7z" />
+						</svg>Kail Labs</a>
+				</div>
+			</div>
+		</section>
+		<section id="Bases" class="section">
+			<h2 class="title is-5">Other Bases</h2>
+			<table class="table is-striped is-fullwidth">
+				<tr>
+					<th>Base Name</th>
+					<th>Planet</th>
+					<th>Coordinates</th>
+				</tr>
+				<tr>
+					<td>Traveller Tower UDXXII [Civ Hub]</td>
+					<td>UD22-Charlie</td>
+					<td>+12.75, +69.23</td>
+				</tr>
+				<tr>
+					<td>Hokhoon Te Eydoomek (Tower Of Friendship)</td>
+					<td>UD XXII</td>
+					<td>+48.80, -7.63</td>
+				</tr>
+				<tr>
+					<td>GHBG Dinner Party - UDXXII</td>
+					<td>UD22-Charlie</td>
+					<td>+9.10, +98.53</td>
+				</tr>
+				<tr>
+					<td>It's Camp</td>
+					<td>UD22-Delta</td>
+					<td>+43.30, -174.72</td>
+				</tr>
+				<tr>
+					<td>I.P.K. W4TCHT0W3R</td>
+					<td>UD XXII</td>
+					<td>-69.65, +167.55</td>
+				</tr>
+				<tr>
+					<td>The Monolith of Khoushu</td>
+					<td>UD22-Charlie</td>
+					<td>+6.52, -45.56</td>
+				</tr>
+				<tr>
+					<td>Glitched Ancestral Vault Archive</td>
+					<td>UD22-Alpha</td>
+					<td>-35.04, -20.88</td>
+				</tr>
+				<tr>
+					<td>Gift Entity Santa and ElfGek village</td>
+					<td>UD XXII</td>
+					<td>-39.50, 91.97</td>
+				</tr>
+			</table>
+		</section>
+		<img src="./UDXXIIPlanet.png" alt="UD22 Planet" width="512">
+	</main>
+	<footer class="footer">
+		<div class="icons">
+			<a href="https://nomanssky.fandom.com/wiki/United_Federation_of_Travelers" rel="noopener noreferrer"
+				target="_blank"><img src="/assets/Federation_Emblem_2.png" width="128"
+					alt="United Federation of Travelers Logo"></a>
+			<a href="https://nomanssky.fandom.com/wiki/Unification_Day" rel="noopener noreferrer" target="_blank"><img
+					src="./UD_Icon.png" width="170" alt="Unification Day 2022 Logo"></a>
+			<a href="https://nomanssky.fandom.com/wiki/United_Nations_42" rel="noopener noreferrer" target="_blank"><img
+					src="/assets/NewUn42Logo.png" width="128" alt="Unites Nations 42 Logo"></a>
+		</div>
+		<div class="content">
+			<nav id="UDList"><a href="/previous.html">List of Unification Days</a></nav>
+			<p>Logo by <a href="https://www.reddit.com/user/hotbrownDoubleDouble/" rel="noopener noreferrer"
+					target="_blank">u/hotbrownDoubleDouble</a><br>
+				Website by <a href="https://www.reddit.com/user/Lenni009" rel="noopener noreferrer"
+					target="_blank">u/Lenni009</a></p>
+		</div>
+	</footer>
+</body>
+
+</html>
