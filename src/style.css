@@ -35,7 +35,9 @@ main img {
 
 #Time .dateTable {
 	display: grid;
-	grid-template-columns: 50px auto;
+	grid-template-columns: repeat(2, auto);
+	justify-content: left;
+	column-gap: .5rem;
 	margin-left: 2rem;
 }
 
@@ -125,4 +127,17 @@ nav.UD-List {
 
 nav.UD-List>div {
 	margin: 3px;
+}
+
+.system-details {
+	display: grid;
+	grid-template-columns: repeat(2, auto);
+	align-items: baseline;
+	justify-content: center;
+	gap: .5rem;
+	font-size: 24px;
+}
+
+.system-details>*:nth-child(odd) {
+	font-weight: bold;
 }
