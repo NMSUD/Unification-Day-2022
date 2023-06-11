@@ -5,15 +5,8 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Unification Day 2022</title>
-	<link rel="stylesheet" href="/src/style.css">
-	<link rel="shortcut icon" href="./favicon.ico">
-	<script src="/src/logic.js"></script>
-	<script>
-		window.onload = () => {
-			switchTime();
-			switchTable(document.getElementById('timezoneSelect'));
-		}
-	</script>
+	<link rel="shortcut icon" href="../assets/ud22favicon.ico">
+	<script src="../src/2022" type="module"></script>
 </head>
 
 <body>
@@ -21,8 +14,6 @@
 		<h1 class="title">Unification Day 2022</h1>
 		<section class="section" id="Info">
 			<h2 class="title is-5">Important Info</h2>
-			<iframe src="https://discord.com/widget?id=912548805763801159&theme=light" width="400" height="500"
-				sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"></iframe>
 			<div class="system-details">
 				<div>Glyphs:</div>
 				<div>
@@ -47,13 +38,13 @@
 				<div class="timeSlot">Start:</div><output id="timeStartNA"></output>
 				<div class="timeSlot">End:</div><output id="timeEndNA"></output>
 			</div>
-			<button id="switchButton" class="button" onclick="switchTime(this)">Switch timezone</button>
+			<button id="switchButton" class="button">Switch timezone</button>
 			<div class="timezoneNote">Currently displaying: <output id="timezoneMode"></output></div>
 		</section>
 		<section class="section" id="Schedule">
 			<h2 class="title is-5">Schedule</h2>
 			<p>Select the region in which you want to attend the event:</p>
-			<select name="Timezone" id="timezoneSelect" onchange="switchTable(this)">
+			<select name="Timezone" id="timezoneSelect">
 				<option value="EU">Europe/Asia</option>
 				<option value="NA">Australia/America</option>
 			</select>
