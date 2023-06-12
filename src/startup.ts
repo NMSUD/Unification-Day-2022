@@ -16,5 +16,5 @@ document.getElementById('timezoneSelect')?.addEventListener('change', function (
 document.getElementById('switchButton')?.addEventListener('click', () => switchTime());
 
 const discordIframeCode = `<iframe src="https://discord.com/widget?id=912548805763801159&theme=light" width="400" height="500" sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"></iframe>`;
-const section = document.querySelector('#Info h2');
-section?.insertAdjacentHTML('afterend', discordIframeCode);
+const section = document.getElementById('discord');
+if (section) section.innerHTML = discordIframeCode;
