@@ -1,0 +1,39 @@
+{
+  "pages": [
+    {
+      "title": "2023",
+      "target": "internal",
+      "link": "/2023"
+    },
+    {
+      "title": "2022",
+      "target": "internal",
+      "link": "/2022"
+    },
+    {
+      "title": "2021",
+      "target": "external",
+      "link": "https://nomanssky.fandom.com/wiki/Unification_Day#UD_2021"
+    },
+    {
+      "title": "2020",
+      "target": "external",
+      "link": "https://nomanssky.fandom.com/wiki/Unification_Day#UD_2020"
+    },
+    {
+      "title": "2019",
+      "target": "external",
+      "link": "https://nomanssky.fandom.com/wiki/Unification_Day#UD_2019"
+    },
+    {
+      "title": "2018",
+      "target": "external",
+      "link": "https://nomanssky.fandom.com/wiki/Unification_Day#UD_2018"
+    },
+    {
+      "title": "2017",
+      "target": "external",
+      "link": "https://nomanssky.fandom.com/wiki/Unification_Day#UD_2017"
+    }
+  ]
+}

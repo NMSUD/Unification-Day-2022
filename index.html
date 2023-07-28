@@ -2,38 +2,26 @@
 <html lang="en">
 
 <head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Unification Day 2023</title>
-	<link rel="shortcut icon" href="./assets/2023/favicon.ico">
-	<script src="./src/startup.ts" type="module"></script>
+  <title>
+    <%= productName %>
+  </title>
+
+  <meta charset="utf-8">
+  <meta name="description" content="<%= productDescription %>">
+  <meta name="format-detection" content="telephone=no">
+  <meta name="msapplication-tap-highlight" content="no">
+  <meta name="viewport"
+    content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width<% if (ctx.mode.cordova || ctx.mode.capacitor) { %>, viewport-fit=cover<% } %>">
+
+  <link rel="icon" type="image/png" sizes="128x128" href="icons/favicon-128x128.png">
+  <link rel="icon" type="image/png" sizes="96x96" href="icons/favicon-96x96.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="icons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="icons/favicon-16x16.png">
+  <link rel="icon" type="image/ico" href="favicon.ico">
 </head>
 
 <body>
-	<main class="container">
-		<h1 class="title">Unification Day 2023</h1>
-		<section class="section" id="Info">
-			Nothing yet...
-		</section>
-	</main>
-	<footer class="footer">
-		<div class="icons">
-			<a href="https://nomanssky.fandom.com/wiki/United_Federation_of_Travelers" rel="noopener noreferrer"
-				target="_blank"><img src="/assets/Federation_Emblem_2.png" width="128"
-					alt="United Federation of Travelers Logo"></a>
-			<a href="https://nomanssky.fandom.com/wiki/Unification_Day" rel="noopener noreferrer" target="_blank"><img
-					src="./UD_Icon.png" width="170" alt="Unification Day 2023 Logo"></a>
-			<a href="https://nomanssky.fandom.com/wiki/United_Nations_42" rel="noopener noreferrer" target="_blank"><img
-					src="/assets/NewUn42Logo.png" width="128" alt="Unites Nations 42 Logo"></a>
-		</div>
-		<div class="content">
-			<nav id="UDList"><a href="/previous.html">List of Unification Days</a></nav>
-			<p>Logo by <a href="https://www.reddit.com/user/" rel="noopener noreferrer" target="_blank">u/</a><br>
-				Website by <a href="https://www.reddit.com/user/Lenni009" rel="noopener noreferrer"
-					target="_blank">u/Lenni009</a></p>
-		</div>
-	</footer>
-
+  <!-- quasar:entry-point -->
 </body>
 
 </html>
