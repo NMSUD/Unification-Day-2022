@@ -1,0 +1,29 @@
+{
+  "importantInfo": {
+    "discordLink": "https://discord.com/widget?id=912548805763801159",
+    "glyphs": "504D32D459A5",
+    "galaxy": "Euclid"
+  },
+  "times": {
+    "startTimeEu": 0,
+    "endTimeEu": 0,
+    "startTimeNa": 0,
+    "endTimeNa": 0
+  },
+  "schedule": [],
+  "bases": [],
+  "streams": {
+    "eu": [],
+    "na": []
+  },
+  "image": "",
+  "logo": "",
+  "logoCreator": {
+    "name": "",
+    "link": ""
+  },
+  "websiteCreator": {
+    "name": "",
+    "link": ""
+  }
+}

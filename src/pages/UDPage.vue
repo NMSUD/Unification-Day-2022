@@ -1,21 +1,35 @@
 <script setup lang="ts">
-import { Year } from 'src/types/years';
-import { onMounted, ref } from 'vue';
-import { RouteParams, onBeforeRouteUpdate, useRoute } from 'vue-router';
-import ImportantInfo from 'src/components/ImportantInfo.vue';
+import { Year } from "src/types/years";
+import { onMounted, ref } from "vue";
+import { RouteParams, onBeforeRouteUpdate, useRoute } from "vue-router";
+import ImportantInfo from "src/components/ImportantInfo.vue";
+import { useUdDataStore } from "src/stores/udDataStore";
+import { storeToRefs } from "pinia";
 const route = useRoute();
+const udDataStore = useUdDataStore();
+
+const { websiteCreator, logoCreator, image, logo, activeYear } =
+  storeToRefs(udDataStore);
 
 const data = ref<Year | undefined>(undefined);
 
 async function loadData(routeParams: RouteParams) {
   const currentYear = routeParams.year;
-  if (typeof currentYear !== 'string') {
+  if (typeof currentYear !== "string") {
     data.value = undefined;
+    activeYear.value = "";
     return;
   }
+  activeYear.value = currentYear;
 
   try {
-    data.value = await import(`/src/data/${currentYear}.json`);
+    const { default: jsonData } = await import(`../assets/${currentYear}.json`);
+
+    data.value = jsonData;
+    logoCreator.value = jsonData.logoCreator;
+    websiteCreator.value = jsonData.websiteCreator;
+    image.value = jsonData.image;
+    logo.value = jsonData.logo;
   } catch {
     data.value = undefined;
   }
@@ -23,22 +37,22 @@ async function loadData(routeParams: RouteParams) {
 
 onMounted(async () => {
   await loadData(route.params);
-})
+});
 
 onBeforeRouteUpdate(async (to) => {
   await loadData(to.params);
-})
+});
 </script>
 
-
 <template>
-  <div v-if="data">
-    <ImportantInfo v-bind="data.importantInfo" />
+  <q-page class="row justify-evenly text-center">
+    <div v-if="data">
+      <ImportantInfo v-bind="data.importantInfo" />
+    </div>
 
-
-  </div>
-
-  <div v-else>
-    Failed to load data!
-  </div>
+    <div v-else class="text-weight-bold text-h4 q-py-md bg-negative text-white">
+      Failed to load data!
+    </div>
+  </q-page>
 </template>
+src/stores/udDataStore

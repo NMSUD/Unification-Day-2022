@@ -1,1 +1,12 @@
 // app global css in SCSS form
+@font-face {
+  font-family: NMS-Glyphs-Mono;
+  src: local('NMS-Glyphs-Mono'), url('./fonts/NMS-Glyphs-Mono.ttf') format('truetype');
+}
+
+.glyph-font {
+  font-family: NMS-Glyphs-Mono;
+  font-size: 2.5rem;
+  vertical-align: sub;
+  word-break: break-all;
+}
