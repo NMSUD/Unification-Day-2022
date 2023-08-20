@@ -1,11 +1,12 @@
 <script setup lang="ts">
-import { reactive, ref } from 'vue';
+import { computed, ref } from 'vue';
 import EssentialLink from 'components/EssentialLink.vue';
 import EssentialLinkInternal from 'components/EssentialLinkInternal.vue';
 import { pages } from 'src/assets/years.json';
 import { useUdDataStore } from 'src/stores/udDataStore';
 import { storeToRefs } from 'pinia';
-import { useRouter, useRoute } from 'vue-router';
+import { useRouter, onBeforeRouteUpdate } from 'vue-router';
+import { useFavicon } from '@vueuse/core';
 
 const udDataStore = useUdDataStore();
 
@@ -13,32 +14,65 @@ const { websiteCreator, logoCreator, logo, activeYear } = storeToRefs(udDataStor
 
 const leftDrawerOpen = ref(false);
 const router = useRouter();
-const route = useRoute();
 
 function toggleLeftDrawer() {
   leftDrawerOpen.value = !leftDrawerOpen.value;
 }
 
-const images = reactive([
-  {
+interface Logos {
+  link: string;
+  img: string;
+  alt: string;
+  width: string;
+}
+
+const images = computed(() => {
+  const returnArray: Logos[] = [];
+
+  const fedIcon = {
     link: 'https://nomanssky.fandom.com/wiki/United_Federation_of_Travelers',
     img: 'images/logos/Federation_Emblem_2.png',
     alt: 'United Federation of Travelers Logo',
     width: '128',
-  },
-  {
-    link: 'https://nomanssky.fandom.com/wiki/Unification_Day',
-    img: `images/logos/${logo.value}`,
-    alt: `Unification Day ${activeYear.value} Logo`,
-    width: '170',
-  },
-  {
+  };
+
+  const un42Icon = {
     link: 'https://nomanssky.fandom.com/wiki/United_Nations_42',
     img: 'images/logos/NewUn42Logo.png',
     alt: 'Unites Nations 42 Logo',
     width: '128',
-  },
-]);
+  };
+
+  returnArray.push(fedIcon);
+
+  if (activeYear.value) {
+    returnArray.push({
+      link: 'https://nomanssky.fandom.com/wiki/Unification_Day',
+      img: `images/logos/${logo.value}`,
+      alt: `Unification Day ${activeYear.value} Logo`,
+      width: '170',
+    });
+  }
+
+  returnArray.push(un42Icon);
+
+  return returnArray;
+});
+
+onBeforeRouteUpdate((to) => {
+  udDataStore.$reset();
+
+  const currentYear = to.params.year;
+  const path = `icons/${currentYear || 'generic'}/favicon.ico`;
+  useFavicon(path);
+
+  if (typeof currentYear !== 'string') {
+    activeYear.value = '';
+    return;
+  }
+
+  activeYear.value = currentYear;
+});
 </script>
 
 <template>
@@ -100,41 +134,37 @@ const images = reactive([
       <q-item
         v-for="image in images"
         :key="image.link"
-        clickable
+        :href="image.link"
         tag="a"
         target="_blank"
-        :href="image.link"
         class="footer-image"
+        clickable
       >
         <q-img
-          :src="image.img"
           :alt="image.alt"
+          :src="image.img"
           :style="{ width: image.width + 'px' }"
           fit="contain"
         />
       </q-item>
-      <p
-        v-if="logoCreator"
-        class="credits"
-      >
-        Logo by
-        <a
-          :href="logoCreator.link"
-          target="_blank"
-          >{{ logoCreator.name }}</a
-        >
-      </p>
-      <p
-        v-if="websiteCreator"
-        class="credits"
-      >
-        Website by
-        <a
-          :href="websiteCreator.link"
-          target="_blank"
-          >{{ websiteCreator.name }}</a
-        >
-      </p>
+      <div class="q-mt-md credits">
+        <p v-if="logoCreator.name">
+          Logo by
+          <a
+            :href="logoCreator.link"
+            target="_blank"
+            >{{ logoCreator.name }}</a
+          >
+        </p>
+        <p v-if="websiteCreator.name">
+          Website by
+          <a
+            :href="websiteCreator.link"
+            target="_blank"
+            >{{ websiteCreator.name }}</a
+          >
+        </p>
+      </div>
     </q-footer>
 
     <q-page-container>

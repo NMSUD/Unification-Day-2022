@@ -15,15 +15,20 @@ const $q = useQuasar();
 const currentTheme = computed(() => {
   const darkModeActive = $q.dark.isActive;
   return `&theme=${darkModeActive ? 'dark' : 'light'}`;
-})
+});
 </script>
 
-
 <template>
-  <h2 class="text-h4">Important Info</h2> <!--//NOSONAR-->
-  <iframe v-if="discordLink" :src="discordLink + currentTheme" class="q-mb-sm discord-embed" title="Discord Embed"
-    sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts" width="400"
-    height="500"></iframe>
+  <h2 class="text-h4">Important Info</h2>
+  <iframe
+    v-if="discordLink"
+    :src="discordLink + currentTheme"
+    class="q-mb-sm discord-embed"
+    title="Discord Embed"
+    sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"
+    width="400"
+    height="500"
+  ></iframe>
   <div>
     <span class="text-h5">Glyphs: </span>
     <span class="glyph-font">{{ glyphs }}</span>
